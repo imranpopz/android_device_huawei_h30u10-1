@@ -34,12 +34,10 @@ MTK_PLATFORM := mt6582
 MTK_PROJECT := h30u10
 TARGET_KERNEL_SOURCE := kernel/huawei/h30u10
 TARGET_KERNEL_CONFIG := h30u10_defconfig
-BOARD_KERNEL_CMDLINE := console=tty0 console=ttyMT3,921600n1 root=/dev/ram vmalloc=496M slub_max_order=0 slub_debug=0 androidboot.hardware=sprout androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
-KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+BOARD_KERNEL_IMAGE_NAME := zImage
 #TARGET_PREBUILT_KERNEL := device/huawei/h30u10/kernel
 
 # Hack for build
@@ -113,16 +111,11 @@ TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # Dual SIM
 SIM_COUNT := 2
-TARGET_GLOBAL_CFLAGS += -DANDROID_MULTI_SIM
-TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 
 BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
-TARGET_GLOBAL_CFLAGS   += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_USERIMAGES_USE_EXT4:=true
 USE_CAMERA_STUB := true
 
-# SELinux
-BOARD_SEPOLICY_DIRS += \
-    device/huawei/h30u10/sepolicy
+PB_GO := true
+PB_FORCE_DD_FLASH := true
