@@ -1,0 +1,8 @@
+[
+  {
+    "remote":"github",
+    "repository": "imranpopz/DareDevil_h30u10",
+    "target_path": "kernek/huawei/h30u10",
+    "revision":"oreo"
+  }
+]
