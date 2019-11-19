@@ -1,9 +1,3 @@
-#
-# system.prop for huawei honor h30u10
-# By GODz Android Dev
-# Manjot Sidhu - Arbaz Khan - Piyush Kulkarni
-#
-				  
 
 rild.libpath=/system/lib/mtk-ril.so
 rild.libargs=-d /dev/ttyC0
